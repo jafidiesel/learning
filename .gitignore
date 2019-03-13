@@ -7,3 +7,5 @@
 ./gatsby/tutorial-two/.gitignore
 ./gatsby/tutorial-two/node_modules/
 ./gatsby/tutorial-two/readme.md
+
+./react/catch-of-the-day/node_modules/
