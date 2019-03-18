@@ -12,3 +12,5 @@
 ./gatsby/tutorial-part-three/.gitignore
 ./gatsby/tutorial-part-three/node_modules/
 ./gatsby/tutorial-part-three/readme.md
+
+./react/catch-of-the-day/node_modules/
