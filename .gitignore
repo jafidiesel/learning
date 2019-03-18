@@ -3,7 +3,12 @@
 ./gatsby/hello-world/node_modules/
 ./gatsby/hello-world/readme.md
 
-./gatsby/tutorial-two/.git
-./gatsby/tutorial-two/.gitignore
-./gatsby/tutorial-two/node_modules/
-./gatsby/tutorial-two/readme.md
+./gatsby/tutorial-part-two/.git
+./gatsby/tutorial-part-two/.gitignore
+./gatsby/tutorial-part-two/node_modules/
+./gatsby/tutorial-part-two/readme.md
+
+./gatsby/tutorial-part-three/.git
+./gatsby/tutorial-part-three/.gitignore
+./gatsby/tutorial-part-three/node_modules/
+./gatsby/tutorial-part-three/readme.md
