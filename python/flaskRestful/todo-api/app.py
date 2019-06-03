@@ -1,6 +1,9 @@
 #!flask/bin/python
 # https://blog.miguelgrinberg.com/post/designing-a-restful-api-with-python-and-flask
 from flask import Flask, jsonify, abort, make_response, request, url_for
+from flask_httpauth import HTTPBasicAuth
+
+auth = HTTPBasicAuth()
 
 app = Flask(__name__)
 
@@ -19,12 +22,30 @@ tasks = [
     }
 ]
 
+@auth.get_password
+def get_password(username):
+    # This function should check with a DB
+    if username == 'miguel':
+        return 'python'
+    return None
+
+@auth.error_handler
+def unauthorized():
+    return make_response(jsonify({'error' : 'Unauthorized access'}), 403)
+    # This shouldn't be a 403 because it's not the proper http code, but the code 401 sometimes return a login when it shouldn't. In this case that we developed the client and the server we can manage it. 
+
+# Override error handler
+@app.errorhandler(404)
+def not_found(error):
+    return make_response(jsonify({'error': 'Not Found'}), 404)
+
 @app.route('/')
 def index():
     return "main"
 
 # Get all tasks
 @app.route('/todo/api/v1.0/tasks', methods=['GET'])
+@auth.login_required
 def get_tasks():
     return jsonify({'tasks': [make_public_task(task) for task in tasks]})
 
@@ -35,11 +56,6 @@ def get_task(task_id):
     if len(task) == 0:
         abort(404)
     return jsonify({'task': task[0]})
-
-# Override error handler
-@app.errorhandler(404)
-def not_found(error):
-    return make_response(jsonify({'error': 'Not Found'}), 404)
 
 # Post a task
 @app.route('/todo/api/v1.0/tasks', methods=['POST'])
