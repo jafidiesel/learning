@@ -14,3 +14,10 @@
 ./gatsby/tutorial-part-three/readme.md
 
 ./react/catch-of-the-day/node_modules/
+
+./python/flaskRestful/todo-api/flask/
+./python/flask_contact_app/myvenv/
+./python/flaskTutorial/myvenv/
+
+./angular/02-spa/e2e/
+./angular/02-spa/e2e/node_modules/
