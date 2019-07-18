@@ -23,3 +23,4 @@
 ./angular/02-spa/e2e/node_modules/
 
 ./testing/apiTesting/jestSupertest/node_modules/
+node_modules/
