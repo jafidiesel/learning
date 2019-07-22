@@ -11,6 +11,8 @@ export class SearchComponent implements OnInit {
 
   heroes: Heroe[] = [];
 
+  terminobusqueda: String;
+
   constructor(  private _heroesService: HeroesService,
                 private router: Router,
                 private activatedRoute: ActivatedRoute ) {
@@ -19,6 +21,7 @@ export class SearchComponent implements OnInit {
 
   ngOnInit() {
     this.activatedRoute.params.subscribe( params => {
+      this.terminobusqueda = params['q'];
       this.heroes = this._heroesService.buscarHeroes( params['q'] );
 
     } );
