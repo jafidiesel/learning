@@ -32,16 +32,22 @@ async function waitForURLReachable(url, { timeout = 1000 } = {}) {
     const timeoutThreshold = Date.now() + timeout
     while (true) {
         try {
+           // await sleep(5000)
             await axios.get(url)
             return true
         } catch (err) {
             if (Date.now() > timeoutThreshold) {
                 throw new Error(`URL ${url} not reachable after ${timeout}ms`)
             }
-            await new Promise(resolve => setTimeout(resolve, 100))
+            await new Promise(resolve => setTimeout(resolve, 1000))
         }
     }
 }
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
 exports.useInTest = function() {
     before(async function startTestServer() {
         // The test server's environment variables should be set to TEST_ENV as
@@ -50,7 +56,7 @@ exports.useInTest = function() {
         // 2. Assign PORT to a random free port
         const env = Object.assign({}, TEST_ENV, {
             PATH: process.env.PATH,
-            PORT: await getPort()
+            PORT: 4000 //await getPort()
         })
         // Use our utility function that we created above to spawn the test server
         const testServer = await spawnServer(env)
