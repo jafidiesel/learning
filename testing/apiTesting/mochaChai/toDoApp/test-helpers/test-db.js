@@ -6,7 +6,7 @@ exports.useInTest = function() {
             'mongodb://localhost:27017',
             { useNewUrlParser: true }
         )
-        const db = mongoClient.db('todoman-test')
+        const db = mongoClient.db('todoman')
         this.mongoClient = mongoClient
         this.db = db
     })

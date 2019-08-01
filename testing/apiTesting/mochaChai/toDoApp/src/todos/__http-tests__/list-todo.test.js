@@ -1,6 +1,7 @@
 /* eslint-env mocha */
 
 const { expect } = require('chai')
+const axios = require('axios')
 const testServer = require('../../../test-helpers/test-server')
 const testDb = require('../../../test-helpers/test-db')
 
@@ -9,7 +10,8 @@ const sleep = (milliseconds) => {
   }
 
 describe('GET /todos', function() {
-  testServer.useInTest()
+  //testServer.useInTest()
+  const api = axios.create({ baseURL: `http://localhost:4000` })
   testDb.useInTest()
   
     it('responds with 200 { todos }', async function() {
