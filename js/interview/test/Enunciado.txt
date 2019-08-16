@@ -1,0 +1,15 @@
+Desarrollar una aplicación web cumpliendo los siguientes requisitos:
+
+Features: 
+- Formulario de ingreso de ítem: crear un formulario de carga de datos para ingresar un nuevo ítem a la lista, este formulario deberá tener los campos: nombre, cantidad, descripción y un botón de submit para enviar el formulario.
+
+- Listado de items en tiempo real: mostrar en un listado los items ingresados desde el formulario. Una vez submiteado el formulario si los datos ingresados cumplen con los requisitos deberá aparecer automáticamente en la lista este nuevo ítem ingresado.
+
+- Filtro de texto: arriba del listado deberá haber un campo de texto con el cual se podrá filtrar el listado por nombre del ítem en tiempo real.
+
+Consideraciones: 
+
+- No se pueden repetir los nombres de los items, si se llegara a repetir deberá no dejarte agregar a la lista y informar al usuario que el nombre ya esta en uso.
+
+
+Nota: Se recomienda usar ReactJS y Redux para el ejercicio, pero puede utilizar ce las tecnologías que crea necesaria.
