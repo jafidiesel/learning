@@ -1,29 +1,29 @@
 // https://maximilianschmitt.me/posts/tutorial-rest-api-integration-testing-node-js/
 const express = require('express')
-const { MongoClient } = require('mongodb')
+/* const { MongoClient } = require('mongodb') */
 const bodyParser = require('body-parser')
 const ValidationError = require('./errors/ValidationError')
 
 const PORT = process.env.PORT || 4000
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017'
-const MONGODB_DB = process.env.MONGODB_DB || 'todoman'
+/* const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017'
+const MONGODB_DB = process.env.MONGODB_DB || 'todoman' */
 
 main()
 
 async function main() {
 
-    const mongoClient = await MongoClient.connect(MONGODB_URI, {
+    /* const mongoClient = await MongoClient.connect(MONGODB_URI, {
         useNewUrlParser: true
     })
-    const db = mongoClient.db(MONGODB_DB)
+    const db = mongoClient.db(MONGODB_DB) */
     
     const app = express()
     app.use(bodyParser.json())
 
-    app.use(function attachDb(req, res, next) {
+/*     app.use(function attachDb(req, res, next) {
         req.db = db
         next()
-    })
+    }) */
     
     app.get('/', function(req, res, next) {
         res.status(200).json({ name: 'todoman-backend' })

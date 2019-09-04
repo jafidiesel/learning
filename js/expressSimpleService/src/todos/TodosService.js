@@ -35,4 +35,12 @@ module.exports = class TodosService {
     async getNomenclador(param){
         return param
     }
+
+    async createNomenclador(nomencladorData) {
+        if(!nomencladorData.tipoNomencladorInput){
+            throw new ValidationError({ tipoNomencladorInput: 'required' })
+        }
+        return nomencladorData
+        
+    }
 }

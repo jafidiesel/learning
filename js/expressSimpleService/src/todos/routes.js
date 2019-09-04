@@ -32,7 +32,32 @@ router.get('/api/configuracion/nomenclador/:id', function(req, res, next) {
     const todosService = new TodosService()
     todosService
         .getNomenclador(req.params.id)
-        .then(nomenclador => res.status(200).json({ nomenclador }))
+        .then(nomenclador => {
+            
+            res.status(200)
+            res.type('application/json')
+            res.append('Access-Control-Allow-Origin', '*')
+            res.set('Access-Control-Allow-Origin', '*')
+            res.json({ nomenclador })
+
+            })
+        .catch(next)
+})
+
+router.post('/api/configuracion/nomenclador/', function(req, res, next) {
+    const { body } = req
+    const todosService = new TodosService()
+    todosService
+        .createNomenclador(body)
+        .then(nomenclador => {
+            
+            res.status(200)
+            res.type('application/json')
+            res.append('Access-Control-Allow-Origin', '*')
+            res.set('Access-Control-Allow-Origin', '*')
+            res.json({ nomenclador })
+
+            })
         .catch(next)
 })
 

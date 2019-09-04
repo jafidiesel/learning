@@ -1,8 +1,8 @@
 const ValidationError = require('../errors/ValidationError')
 module.exports = class TodosService {
-    constructor(db) {
+    /* constructor(db) {
         this.db = db
-    }
+    } */
     async listTodos() {
         const todos = await this.db
             .collection('todos')
@@ -27,5 +27,8 @@ module.exports = class TodosService {
         })
         const todo = result.ops[0]
         return todo
+    }
+    async getConf(){
+        return "{data:'value'}"
     }
 }
