@@ -27,7 +27,7 @@ router.get('/conf', function(req, res, next) {
         .catch(next)
 })
 
-router.get('/api/configuracion/nomenclador/:id', function(req, res, next) {
+router.get('/api/configuracion/nomenclador/otro/:id', function(req, res, next) {
     /* const { db } = req */
     const todosService = new TodosService()
     todosService
@@ -35,30 +35,23 @@ router.get('/api/configuracion/nomenclador/:id', function(req, res, next) {
         .then(nomenclador => {
             
             res.status(200)
-            res.type('application/json')
-            res.append('Access-Control-Allow-Origin', '*')
-            res.set('Access-Control-Allow-Origin', '*')
             res.json({ nomenclador })
 
             })
         .catch(next)
 })
 
-router.post('/api/configuracion/nomenclador/', function(req, res, next) {
+router.post('/api/configuracion/nomenclador', function(req, res, next) {
     const { body } = req
     const todosService = new TodosService()
     todosService
         .createNomenclador(body)
         .then(nomenclador => {
-            
-            res.status(200)
-            res.type('application/json')
-            res.append('Access-Control-Allow-Origin', '*')
-            res.set('Access-Control-Allow-Origin', '*')
-            res.json({ nomenclador })
-
+            res.status(201)
+            res.json({ "data": nomenclador })
             })
         .catch(next)
 })
+
 
 module.exports = router
