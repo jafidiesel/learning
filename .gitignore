@@ -24,3 +24,6 @@
 
 ./testing/apiTesting/jestSupertest/node_modules/
 node_modules/
+
+./js/asyncAwaitCountryApp/node_modules/
+
