@@ -1,0 +1,14 @@
+{
+  "name": "lvlupecma6",
+  "version": "1.0.0",
+  "description": "ecma6 learning",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "jafidiesel",
+  "license": "ISC",
+  "dependencies": {
+    "esm": "^3.2.25"
+  }
+}
