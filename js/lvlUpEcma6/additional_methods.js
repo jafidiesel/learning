@@ -29,3 +29,26 @@ Object.assign(obj3, obj2);
 
 obj1;
 obj3;
+
+
+// #array-find
+
+var arr = [1, 20, 5, 10];
+
+// es5
+let results = arr.filter(function(number){
+  return number > 10;
+})
+results[0];
+
+// es6
+results = arr.find(function(number){
+  return number > 10;
+})
+results;
+
+// #array-find-index
+results = arr.findIndex(function(number){
+  return number > 10;
+})
+results;
