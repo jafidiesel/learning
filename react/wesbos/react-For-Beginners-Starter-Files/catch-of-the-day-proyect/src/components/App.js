@@ -29,7 +29,6 @@ class App extends React.Component {
 
     componentWillUnmount(){
         const { params } = this.props.match;
-        console.log(`${params.storeId}/fishes`);
         base.remove(`${params.storeId}/fishes`);
         base.removeBinding(this.ref);
     }
@@ -83,23 +82,24 @@ class App extends React.Component {
                     <ul className="fishes">
                         {Object.keys(this.state.fishes).map(key =>{
                             return <Fish 
-                                key={key} 
+                                key={key}
                                 index={key}
-                                details={this.state.fishes[key]} 
+                                details={this.state.fishes[key]}
                                 addToOrder={this.addToOrder} />
                         })}
                     </ul>
                 </div>
                 <Order 
-                    fishes={this.state.fishes} 
-                    order={this.state.order} 
+                    fishes={this.state.fishes}
+                    order={this.state.order}
                     removeFromOrder={this.removeFromOrder}
                 />
                 <Inventory 
-                    addFish={this.addFish} 
-                    updateFish={this.updateFish} 
+                    addFish={this.addFish}
+                    updateFish={this.updateFish}
                     loadSampleFishes={this.loadSampleFishes}
                     fishes={this.state.fishes}
+                    storeId={this.props.match.params.storeId}
                 />
             </div>
         )

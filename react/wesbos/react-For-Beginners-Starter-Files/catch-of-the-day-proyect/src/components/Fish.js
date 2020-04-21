@@ -8,7 +8,6 @@ class Fish extends React.Component {
             image : PropTypes.string,
             name : PropTypes.string,
             descstatus : PropTypes.string,
-            price : PropTypes.number
         }),
         addToOrder: PropTypes.func,
     }
