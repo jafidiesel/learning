@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Tic tac toe</title>
+</head>
+<body>
+    Jugador 1:<input type="text" name="player1" id="player1">
+    Jugador 2:<input type="text" name="player2" id="player2">
+    <button onclick="initializeGame()">Iniciar juego</button>
+    <h2 id="big-message"></h2>
+    <table id="board">
+        <tr id="first-row">
+            <td>
+                <input type="hidden" name="cell00" id="cell00">
+                <button id="button00" onclick="selectPosition(this.id,'00')" >x</button>
+            </td>
+            <td>
+                <input type="hidden" name="cell01" id="cell01">
+                <button >x</button>
+            </td>
+            <td>
+                <input type="hidden" name="cell02" id="cell02">
+                <button >x</button>
+            </td>
+        </tr>
+        <tr id="second-row" >
+            <td>
+                <input type="hidden" name="cell10" id="cell10">
+                <button id="" >x</button>
+            </td>
+            <td>
+                <input type="hidden" name="cell11" id="cell11">
+                <button id="" >x</button>
+            </td>
+            <td>
+                <input type="hidden" name="cell12" id="cell12">
+                <button id="" >x</button>
+            </td>
+        </tr>
+        <tr id="third-row">
+            <td>
+                <input type="hidden" name="cell20" id="cell20">
+                <button id="" >x</button>
+            </td>
+            <td>
+                <input type="hidden" name="cell21" id="cell21">
+                <button id="" >x</button>
+            </td>
+            <td>
+                <input type="hidden" name="cell22" id="cell22">
+                <button id="" >x</button>
+            </td>
+        </tr>
+    </table>
+
+    <button onclick="cleanBoard()">Limpiar Tablero</button>
+    <script type="text/javascript" src="index.js"></script>
+
+</body>
+</html>
