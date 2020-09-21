@@ -12,7 +12,7 @@ function Comments(props) {
                 <p>
                     <strong>{comment.user}</strong>
                     {comment.text}
-                    <button className="remove-comment">&times;</button>
+                    <button className="remove-comment" onClick={() => props.removeComment(props.match.params.postId, i)}>&times;</button>
                 </p>
             </div>
         );
@@ -25,6 +25,7 @@ function Comments(props) {
         const localComment = comment.current.value;
         console.log(localAuthor, localComment, postId);
         props.addComment(postId, localAuthor, localComment);
+        commentForm.current.reset();
     }   
 
     return (
