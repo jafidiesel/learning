@@ -1,4 +1,4 @@
-import { createStore } from 'redux';
+import { compose, createStore } from 'redux';
 
 // importy the root reducer
 import rootReducer from './reducers/index';
@@ -13,7 +13,18 @@ const defaultState = {
     comments
 }
 
-const store = createStore(rootReducer, defaultState);
+const enhancers = compose(
+    window.devToolExtension ? window.devToolExtension() : f => f
+);
 
+const store = createStore(rootReducer, defaultState, enhancers);
+
+// this enable hot reload on reducers
+if(module.hot){
+    module.hot.accept('./reducers/', ()=>{
+        const nextRootReducer = require('./reducers/index').default;
+        store.replaceReducer(nextRootReducer);
+    })
+}
 
 export default store;

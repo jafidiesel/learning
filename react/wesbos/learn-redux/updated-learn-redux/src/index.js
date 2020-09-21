@@ -3,6 +3,16 @@ import ReactDOM from 'react-dom';
 import './styles/style.css';
 import Router from './Route';
 import * as serviceWorker from './serviceWorker';
+import * as Sentry from "@sentry/react";
+import { Integrations } from "@sentry/tracing";
+
+Sentry.init({
+  dsn: process.env.REACT_APP_SENTRYURL,
+  integrations: [
+    new Integrations.BrowserTracing(),
+  ],
+  tracesSampleRate: 1.0,
+});
 
 ReactDOM.render(
   <React.StrictMode>
